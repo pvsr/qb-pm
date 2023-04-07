@@ -4,15 +4,18 @@
   pythonPackages ? builtins.getAttr (python + "Packages") pkgs,
 }:
 with pythonPackages;
-  buildPythonPackage rec {
+  buildPythonApplication rec {
     pname = "qbpm";
     version = "1.0-rc2";
+    pyproject = true;
     src = ./.;
     doCheck = true;
-    format = "pyproject";
-    nativeBuildInputs = [pkgs.scdoc setuptools];
-    propagatedBuildInputs = [pyxdg click];
-    checkInputs = [pytest];
+
+    build-system = [setuptools];
+    nativeBuildInputs = [pkgs.scdoc];
+    dependencies = [pyxdg click httpx pillow];
+    nativeCheckInputs = [pytestCheckHook];
+
     postInstall = ''
       install -D -m644 completions/qbpm.fish $out/share/fish/vendor_completions.d/qbpm.fish
 
@@ -23,4 +26,11 @@ with pythonPackages;
       mkdir -p $out/share/man/man1
       scdoc < qbpm.1.scd > $out/share/man/man1/qbpm.1
     '';
+
+    meta = {
+      homepage = "https://github.com/pvsr/qbpm";
+      changelog = "https://github.com/pvsr/qbpm/blob/main/CHANGELOG.md";
+      description = "A profile manager for qutebrowser";
+      license = lib.licenses.gpl3Plus;
+    };
   }

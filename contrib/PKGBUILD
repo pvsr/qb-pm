@@ -5,11 +5,18 @@ pkgver=1.0.rc2.r1
 pkgrel=1
 pkgdesc="A profile manager for qutebrowser"
 url="https://github.com/pvsr/qbpm"
-license=('GPL')
+license=('GPL-3.0-or-later')
 sha512sums=('SKIP')
 arch=('any')
 depends=('python' 'python-pyxdg' 'python-click')
-makedepends=('git' 'python-build' 'python-installer' 'python-wheel' 'python-setuptools' 'scdoc')
+makedepends=('git'
+             'python-build' 
+             'python-installer' 
+             'python-wheel' 
+             'python-setuptools' 
+             'python-httpx'
+             'python-pillow'
+             'scdoc')
 provides=('qbpm')
 source=("git+https://github.com/pvsr/qbpm")
 

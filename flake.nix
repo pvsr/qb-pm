@@ -39,12 +39,15 @@
           packages = with pkgs;
             [
               ruff
+              scdoc
+              xdg-utils
               (python3.withPackages (ps:
                 with ps; [
                   pytest
                   mypy
                   pylsp-mypy
                   ruff-lsp
+                  types-pillow
                 ]))
             ]
             ++ self.packages.x86_64-linux.default.propagatedBuildInputs;

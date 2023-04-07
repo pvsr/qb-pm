@@ -81,6 +81,18 @@ $HOME/.local/share), but this can be set to another directory by passing
 		qbpm launch -n qb-dev --debug --json-logging
 		```
 
+*icon* [options] <profile> <icon>
+	Install an icon to _profile_. _icon_ may be a url, a path to an image file,
+	or, if --by-name is passed, the name of an xdg icon installed on your
+	system. If _icon_ is a url, qbpm will fetch the page and attempt to find a
+	suitable favicon.
+
+	Options:
+
+	*-n, --by-name*
+		Interpret _icon_ as the name of an xdg icon file according to the
+		freedesktop.org icon specification. Likely to only work on Linux.
+
 *choose* [options]
 	Open a menu to choose a qutebrowser profile to launch. On linux this defaults
 	to dmenu or another compatible menu program such as rofi, and on macOS this
@@ -120,4 +132,14 @@ $HOME/.local/share), but this can be set to another directory by passing
 
 Peter Rice
 
-Contribute at https://github.com/pvsr/qbpm
+# CONTRIBUTE
+
+_https://github.com/pvsr/qbpm_
+
+_https://codeberg.org/pvsr/qbpm_
+
+# LICENSE
+
+src/qbpm/favicon.py: MIT
+
+all other code and qbpm as a whole: GPLv3+

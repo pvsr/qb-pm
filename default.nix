@@ -9,7 +9,8 @@ with pythonPackages;
     version = "1.0-rc2";
     src = ./.;
     doCheck = true;
-    nativeBuildInputs = [pkgs.scdoc];
+    format = "pyproject";
+    nativeBuildInputs = [pkgs.scdoc setuptools];
     propagatedBuildInputs = [pyxdg click];
     checkInputs = [pytest];
     postInstall = ''

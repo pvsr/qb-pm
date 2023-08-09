@@ -67,7 +67,7 @@ def test_overwrite_config(tmp_path: Path):
     profiles.create_config(profile)
     profiles.create_config(profile, url, True)
     assert list(config_dir.iterdir()) == [config_dir / "config.py"]
-    with open(config_dir / "config.py") as conf:
+    with (config_dir / "config.py").open() as conf:
         for line in conf:
             if url in line:
                 return

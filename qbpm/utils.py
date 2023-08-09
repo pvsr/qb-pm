@@ -10,7 +10,7 @@ from xdg import BaseDirectory
 WAYLAND_MENUS = ["fuzzel", "wofi", "dmenu-wl"]
 X11_MENUS = ["rofi", "dmenu"]
 AUTO_MENUS = WAYLAND_MENUS + X11_MENUS
-SUPPORTED_MENUS = AUTO_MENUS + ["fzf", "applescript"]
+SUPPORTED_MENUS = [*AUTO_MENUS, "fzf", "applescript"]
 
 
 def error(msg: str) -> None:

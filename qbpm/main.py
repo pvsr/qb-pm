@@ -1,3 +1,4 @@
+import sys
 from pathlib import Path
 from typing import Any, Callable, NoReturn, Optional
 
@@ -139,7 +140,7 @@ def edit(profile_dir: Path, profile_name: str) -> None:
     profile = Profile(profile_name, profile_dir)
     if not profile.exists():
         error(f"profile {profile.name} not found at {profile.root}")
-        exit(1)
+        sys.exit(1)
     click.edit(filename=str(profile.root / "config" / "config.py"))
 
 
@@ -178,10 +179,10 @@ def session_info(
     if not session_path:
         tried = ", ".join([str(p.resolve()) for p in session_paths])
         error(f"could not find session at the following paths: {tried}")
-        exit(1)
+        sys.exit(1)
 
     return (Profile(profile_name or session_path.stem, profile_dir), session_path)
 
 
 def exit_with(result: bool) -> NoReturn:
-    exit(0 if result else 1)
+    sys.exit(0 if result else 1)

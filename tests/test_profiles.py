@@ -106,5 +106,5 @@ def test_ensure_profile_exists_create(tmp_path: Path):
 def test_new_profile(tmp_path: Path):
     (tmp_path / "config.py").touch()
     profile = Profile("test", tmp_path / "test", tmp_path)
-    assert profiles.new_profile(profile)
+    assert profiles.new_profile(profile, desktop_file=False)
     check_new_profile(profile)

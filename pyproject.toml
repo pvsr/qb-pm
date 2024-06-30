@@ -18,10 +18,12 @@ classifiers = [
     "Typing :: Typed",
 ]
 requires-python = ">= 3.9"
-dependencies = ["pyxdg", "click"]
+dependencies = ["pyxdg", "click", "httpx", "pillow"]
 
 [project.urls]
+homepage = "https://github.com/pvsr/qbpm"
 repository = "https://github.com/pvsr/qbpm"
+changelog = "https://github.com/pvsr/qbpm/blob/main/CHANGELOG.md"
 
 [project.scripts]
 qbpm = "qbpm.main:main"
@@ -42,7 +44,7 @@ warn_return_any = true
 warn_unused_ignores = true
 
 [[tool.mypy.overrides]]
-module = "xdg.*"
+module = ["xdg.*"]
 ignore_missing_imports = true
 
 [[tool.mypy.overrides]]

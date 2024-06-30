@@ -13,6 +13,10 @@ X11_MENUS = ["rofi", "dmenu"]
 SUPPORTED_MENUS = [*WAYLAND_MENUS, *X11_MENUS, "fzf", "applescript"]
 
 
+def debug(msg: str) -> None:
+    logging.debug(msg)
+
+
 def info(msg: str) -> None:
     logging.info(msg)
 
